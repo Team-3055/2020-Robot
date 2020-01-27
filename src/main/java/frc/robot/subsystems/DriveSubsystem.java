@@ -36,9 +36,9 @@ public class DriveSubsystem extends SubsystemBase {
    * @param fwd the commanded forward movement
    * @param rot the commanded rotation
    */
-  public void arcadeDrive(double fwd, double rot) {
-    t_drive.arcadeDrive(fwd, rot);
-  }
+    public void arcadeDrive(double fwd, double rot) {
+      t_drive.arcadeDrive(fwd, rot);
+    }
     /**
     * Sets the max output of the drive.  Useful for scaling the drive to drive more slowly.
     *
