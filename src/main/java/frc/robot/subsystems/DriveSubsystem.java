@@ -28,7 +28,8 @@ public class DriveSubsystem extends SubsystemBase {
      // The robot's drive
     private final DifferentialDrive t_drive = new DifferentialDrive(leftMotors, rightMotors);
     
-    public DriveSubsystem() {
+    //public DriveSubsystem() {
+    //}
   
     /**
    * Drives the robot using arcade controls.
@@ -47,7 +48,7 @@ public class DriveSubsystem extends SubsystemBase {
     public void setMaxOutput(double maxOutput) {
         t_drive.setMaxOutput(maxOutput);
         }
-}
+
 
   @Override
   public void periodic() {
