@@ -16,7 +16,7 @@ import frc.robot.Constants.DriveConstants;
 
 public class DriveSubsystem extends SubsystemBase {
     // The motors on the left side of the drive.
-    private final SpeedControllerGroup leftMotors = 
+    /*private final SpeedControllerGroup leftMotors = 
         new SpeedControllerGroup(new WPI_TalonSRX(DriveConstants.kLeftMotor1Port),
                                 new WPI_TalonSRX(DriveConstants.kLeftMotor2Port));
 
@@ -24,7 +24,9 @@ public class DriveSubsystem extends SubsystemBase {
     private final SpeedControllerGroup rightMotors = 
         new SpeedControllerGroup(new WPI_TalonSRX(DriveConstants.kRightMotor1Port),
                                 new WPI_TalonSRX(DriveConstants.kRightMotor2Port));
-   
+   */
+    private final WPI_TalonSRX leftMotors = new WPI_TalonSRX(DriveConstants.kLeftMotor1Port);
+    private final WPI_TalonSRX rightMotors = new WPI_TalonSRX(DriveConstants.kRightMotor1Port);
      // The robot's drive
     private final DifferentialDrive t_drive = new DifferentialDrive(leftMotors, rightMotors);
     
