@@ -14,6 +14,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.TankDrive;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -37,7 +38,10 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    Joystick m_driverController = new Joystick(Constants.OIConstants.kRightControllerPort);
+    Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
+    Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
+    XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
+
   
   // Configure default commands
     // Set the default drive command to split-stick arcade drive
@@ -46,8 +50,8 @@ public class RobotContainer {
         // hand, and turning controlled by the right.
         new DefaultDrive(
             m_robotDrive,
-            () -> (m_driverController.getRawAxis(1)*-1),
-            () -> m_driverController.getRawAxis(0)));
+            () -> (m_driverRController.getRawAxis(1)*-1),
+            () -> m_driverRController.getRawAxis(0)));
   }
 
   /**
