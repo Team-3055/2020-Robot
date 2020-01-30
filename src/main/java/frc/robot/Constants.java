@@ -25,5 +25,6 @@ public final class Constants {
     public static final class OIConstants {
         public static final int kRightControllerPort = 1;
         public static final int kLeftControllerPort = 2;
+        public static final int kXboxControllerPort = 3;
     }
 }
