@@ -17,13 +17,20 @@ public class PneumaticSubsystem extends SubsystemBase {
   /**
    * Creates a new ExampleSubsystem.
    */ 
+
+  //Declared varibles for Pneumatics
     private final Compressor c = new Compressor(Constants.PNUConstants.kCompressor);
     private final Solenoid s1 = new Solenoid(Constants.PNUConstants.kSolenoid1);
     private final Solenoid s2 = new Solenoid(Constants.PNUConstants.kSolenoid2);
-    
+  
+  //Boolean=true false, when calling BallRelease(boolean true/false) in code, 
+  //it will drop to here and open/close accordingly
     public void BallRelease(boolean ball) {
       s1.set(ball)
     }
+
+  //Boolean=true false, when calling RobotLift(boolean true/false) in code, 
+  //it will drop to here and open/close accordingly
     public void RobotLift(boolean lift) {
       s2.set(lift)
     }
