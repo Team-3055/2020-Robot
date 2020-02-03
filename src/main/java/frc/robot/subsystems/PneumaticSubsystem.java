@@ -20,6 +20,13 @@ public class PneumaticSubsystem extends SubsystemBase {
     private final Compressor c = new Compressor(Constants.PNUConstants.kCompressor);
     private final Solenoid s1 = new Solenoid(Constants.PNUConstants.kSolenoid1);
     private final Solenoid s2 = new Solenoid(Constants.PNUConstants.kSolenoid2);
+    
+    public void BallRelease(boolean ball) {
+      s1.set(ball)
+    }
+    public void RobotLift(boolean lift) {
+      s2.set(lift)
+    }
 
 /*   public PneumaticSubsystem() {
   }
