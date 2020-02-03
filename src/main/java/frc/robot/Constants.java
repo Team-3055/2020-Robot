@@ -27,4 +27,9 @@ public final class Constants {
         public static final int kLeftControllerPort = 2;
         public static final int kXboxControllerPort = 3;
     }
+    public static final class PNUConstants {
+        public static final int kCompressor = 0;
+        public static final int kSolenoid1 = 1;
+        public static final int kSolenoid2 = 2;
+    }
 }
