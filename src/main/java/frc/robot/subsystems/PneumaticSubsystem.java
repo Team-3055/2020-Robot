@@ -26,13 +26,13 @@ public class PneumaticSubsystem extends SubsystemBase {
   //Boolean=true false, when calling BallRelease(boolean true/false) in code, 
   //it will drop to here and open/close accordingly
     public void BallRelease(boolean ball) {
-      s1.set(ball)
+      s1.set(ball);
     }
 
   //Boolean=true false, when calling RobotLift(boolean true/false) in code, 
   //it will drop to here and open/close accordingly
     public void RobotLift(boolean lift) {
-      s2.set(lift)
+      s2.set(lift);
     }
 
 /*   public PneumaticSubsystem() {
