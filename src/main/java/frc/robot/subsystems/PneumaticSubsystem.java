@@ -11,16 +11,19 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import frc.robot.Constants;
 
 public class PneumaticSubsystem extends SubsystemBase {
   /**
    * Creates a new ExampleSubsystem.
-   */
-  public PneumaticSubsystem() {
-    private static final Compressor c = new Compressor(0)
+   */ 
+    private final Compressor c = new Compressor(Constants.PNUConstants.kCompressor);
+    private final Solenoid s1 = new Solenoid(Constants.PNUConstants.kSolenoid1);
+    private final Solenoid s2 = new Solenoid(Constants.PNUConstants.kSolenoid2);
 
+/*   public PneumaticSubsystem() {
   }
-
+ */
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
