@@ -8,19 +8,15 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.PneumaticSubsystem;
-import jdk.internal.net.http.common.FlowTube.TubePublisher;
-import sun.security.util.PendingException;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/**
- * An example command that uses an example subsystem.
- */
+
 public class RobotDrop extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final PneumaticSubsystem m_subsystem;
 
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new Robot Lift (Down) Command.
    *
    * @param subsystem The subsystem used by this command.
    */
