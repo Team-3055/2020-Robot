@@ -36,4 +36,11 @@ public final class Constants {
         public static final int kSolenoid1 = 1;
         public static final int kSolenoid2 = 2;
     }
+    public static final class bIntakeConstants {
+        public static final int kIntakeMotor = 1;
+        public static final int kBeltMotor1 = 2;
+        public static final int kBeltMotor2 = 3;
+        public static final int kLaunchMotor1 = 4;
+        public static final int kLaunchMotor2 = 5;
 }
+
