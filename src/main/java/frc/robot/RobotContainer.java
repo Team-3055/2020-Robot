@@ -12,8 +12,10 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.DriveSubsystem;
 //import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DefaultDrive;
+
 //import frc.robot.commands.TankDrive;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
@@ -27,7 +29,9 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
+  Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
+    Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
+    XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
 
 
   /**
@@ -36,9 +40,6 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
-    Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
-    XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
 
   
   // Configure default commands
@@ -59,7 +60,11 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
+    //Sets the drive to run at half speed when the right trigger is held
+    new JoystickButton(m_driverRController, Constants.OIConstants.kJoystickTrigger)
+        .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
+        .whenReleased(() -> m_robotDrive.setMaxOutput(1));
+    
   }
 
 
