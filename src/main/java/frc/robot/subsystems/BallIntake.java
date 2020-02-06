@@ -22,6 +22,14 @@ public class BallIntake extends SubsystemBase {
 public void IntakeBall(float speed){
   IntakeMotor.set(speed);
 }
+public void BeltBall(float speed){
+  BeltMotor1.set(speed);
+  BeltMotor2.set(speed);
+}
+public void LaunchBall(float speed){
+  LaunchMotor1.set(speed);
+  LaunchMotor2.set(speed);
+}
 
   /**
    * Creates a new ExampleSubsystem.
