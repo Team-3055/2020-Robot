@@ -30,7 +30,9 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
+  Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
+    Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
+    XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
 
 
   /**
@@ -39,9 +41,6 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
-    Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
-    XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
 
   
   // Configure default commands
