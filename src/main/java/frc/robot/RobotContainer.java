@@ -61,7 +61,11 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
+    //Sets the drive to run at half speed when the right trigger is held
+    new JoystickButton(m_driverRController, Constants.OIConstants.kJoystickTrigger)
+        .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
+        .whenReleased(() -> m_robotDrive.setMaxOutput(1));
+    
   }
 
 
