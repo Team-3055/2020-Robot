@@ -32,6 +32,8 @@ public class BeltBallDown extends CommandBase {
   }
 
   // Called every time the scheduler runs while the command is scheduled.
+  //BeltBall1 goes into the BallIntake subsytem, finds the BeltBall (the two motors), 
+  //and sets them to 1 (fowards)
   @Override
   public void execute() {
     m_subsystem.BeltBall(1);

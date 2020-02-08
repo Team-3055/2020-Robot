@@ -6,11 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
+//imports the PneumaticSubsystem and the commandbase
 import frc.robot.subsystems.PneumaticSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-
+//basically says that the BallReleaseClose is a command
 public class BallReleaseClose extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final PneumaticSubsystem m_subsystem;
