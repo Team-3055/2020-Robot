@@ -36,4 +36,12 @@ public final class Constants {
         public static final int kSolenoid1 = 1;
         public static final int kSolenoid2 = 2;
     }
+
+    public static final class MISCMotorConstants {
+        public static final int kWheel = 1;
+        public static final int kWinch1 = 2;
+        public static final int kWinch2 = 2;
+        public static final int kWinch3 = 2;
+        public static final int kWinch4 = 2;
+    }
 }
