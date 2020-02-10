@@ -37,8 +37,18 @@ public class MiscSubsystem extends SubsystemBase {
    * @param speed The speed the controller must be set at. Value between -1 and 1
    */
   public void ColorControl(float speed) {
-      ColorWheel.set(speed)
+      ColorWheel.set(speed);
   }
+
+  /**
+   * Creates a new Winch Control.
+   *
+   * @param speed The speed the controller must be set at. Value between -1 and 1
+   */
+  public void WinchControl(float speed) {
+    WinchLeft.set(speed);
+    WinchRight.set(speed);
+}
 
   @Override
   public void periodic() {
