@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.commands.TankDrive;
 //import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DefaultDrive;
 
@@ -52,7 +53,7 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
         // hand, and turning controlled by the right.
-        new DefaultDrive(
+        new TankDrive(
             m_robotDrive,
             () -> (m_driverRController.getRawAxis(1)*-1),
             () -> m_driverRController.getRawAxis(0)));
