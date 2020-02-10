@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.MiscSubsystem;
 //import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DefaultDrive;
 
@@ -33,6 +34,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final ColorSubsystem m_colorSensor = new ColorSubsystem();
+  private final MiscSubsystem m_miscSubsystem = new MiscSubsystem();
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
   Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
