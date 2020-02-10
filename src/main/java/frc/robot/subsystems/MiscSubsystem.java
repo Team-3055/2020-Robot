@@ -16,11 +16,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.Constants.MISCMotorConstants;;
 
 public class MiscSubsystem extends SubsystemBase {
-  public final WPI_TalonSRX ColorWheel = new WPI_TalonSRX(MISCMotorConstants.kWheel);
-  public final SpeedControllerGroup WinchRight = new SpeedControllerGroup(
+  private final WPI_TalonSRX ColorWheel = new WPI_TalonSRX(MISCMotorConstants.kWheel);
+  private final SpeedControllerGroup WinchRight = new SpeedControllerGroup(
                                                       new WPI_TalonSRX(MISCMotorConstants.kWinch1) , 
                                                       new WPI_TalonSRX(MISCMotorConstants.kWinch2));
-  public final SpeedControllerGroup WinchLeft = new SpeedControllerGroup(
+  private final SpeedControllerGroup WinchLeft = new SpeedControllerGroup(
                                                         new WPI_TalonSRX(MISCMotorConstants.kWinch3) , 
                                                         new WPI_TalonSRX(MISCMotorConstants.kWinch4));
 
