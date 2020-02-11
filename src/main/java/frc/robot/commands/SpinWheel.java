@@ -16,9 +16,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class SpinWheel extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final ColorSubsystem m_subsystem;
-  private final int halfSpinCount = 0;
+  private final int halfSpinCount;
   private final String startingColor;
   private final String currentColor;
+  private final int seenColor;
   /**
    * Creates a new ExampleCommand.
    *
@@ -33,19 +34,32 @@ public class SpinWheel extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    halfSpinCount = 0;
-    startingColor = m_subsystem.GetColor();
-    currentColor = m_subsystem.GetColor();
+    int halfSpinCount = 0;
+    String startingColor = m_subsystem.colorString;
+    String currentColor = m_subsystem.colorString;
+    int seenColor = 0;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    while (halfSpinCount < 7) {
+      currentColor = m_subsystem.colorString;
+      if (currentColor != startingColor){
+        seenColor = 1;
+      }
+      if ((currentColor == startingColor) && seenColor == 1){
+        seenColor = 0;
+        halfSpinCount++;
+      }
+      m_subsystem.ColorControl(1);
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    m_subsystem.ColorControl(0);
   }
 
   // Returns true when the command should end.
