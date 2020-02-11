@@ -14,7 +14,11 @@ import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.MiscSubsystem;
 import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.RunWinch;
 import frc.robot.commands.SpinWheel;
+import frc.robot.commands.WheelLeft;
+import frc.robot.commands.WheelRight;
+import frc.robot.commands.WheelStop;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import frc.robot.commands.TankDrive;
@@ -76,6 +80,12 @@ public class RobotContainer {
         .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
     new JoystickButton(m_driver2Controller, Button.kX.value).whenPressed(new SpinWheel(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBumperLeft.value)
+        .whenPressed(new WheelLeft(m_colorSensor))
+        .whenReleased(new WheelStop(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBumperRight.value)
+        .whenPressed(new WheelRight(m_colorSensor))
+        .whenReleased(new WheelStop(m_colorSensor));
   }
 
 
