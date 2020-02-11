@@ -104,7 +104,9 @@ public class ColorSubsystem extends SubsystemBase {
   public void ColorControl(float speed) {
     ColorWheel.set(speed);
   }
-  
+  public String getColor(){
+    return this.colorString;
+  }
   
 
   @Override
@@ -133,6 +135,8 @@ public class ColorSubsystem extends SubsystemBase {
     } else {
       colorString = "Unknown";
     }
+
+    this.colorString = colorString;
 
     /**
      * Open Smart Dashboard or Shuffleboard to see the color detected by the 
