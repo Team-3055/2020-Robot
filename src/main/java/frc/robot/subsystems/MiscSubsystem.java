@@ -16,7 +16,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.Constants.MISCMotorConstants;;
 
 public class MiscSubsystem extends SubsystemBase {
-  private final WPI_TalonSRX ColorWheel = new WPI_TalonSRX(MISCMotorConstants.kWheel);
+
   private final SpeedControllerGroup WinchRight = new SpeedControllerGroup(
                                                       new WPI_TalonSRX(MISCMotorConstants.kWinch1) , 
                                                       new WPI_TalonSRX(MISCMotorConstants.kWinch2));
@@ -31,14 +31,7 @@ public class MiscSubsystem extends SubsystemBase {
 
   }
 
-  /**
-   * Creates a new ColorWheel Control.
-   *
-   * @param speed The speed the controller must be set at. Value between -1 and 1
-   */
-  public void ColorControl(float speed) {
-      ColorWheel.set(speed);
-  }
+  
 
   /**
    * Creates a new Winch Control.
