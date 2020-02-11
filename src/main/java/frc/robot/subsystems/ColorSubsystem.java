@@ -8,8 +8,11 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.MISCMotorConstants;
+
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.revrobotics.ColorMatch;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,6 +20,7 @@ import edu.wpi.first.wpilibj.util.Color;
 
 public class ColorSubsystem extends SubsystemBase {
   private final I2C.Port i2cPort = I2C.Port.kOnboard;
+  private final WPI_TalonSRX ColorWheel = new WPI_TalonSRX(MISCMotorConstants.kWheel);
   
   /**
    * A Rev Color Sensor V3 object is constructed with an I2C port as a 
@@ -89,9 +93,17 @@ public class ColorSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Blue", detectedColor.blue);
     SmartDashboard.putNumber("Confidence", match.confidence);
     SmartDashboard.putString("Detected Color", colorString);
+    
   }
 
-  
+  /**
+   * Creates a new ColorWheel Control.
+   *
+   * @param speed The speed the controller must be set at. Value between -1 and 1
+   */
+  public void ColorControl(float speed) {
+    ColorWheel.set(speed);
+}
   
 
   @Override
