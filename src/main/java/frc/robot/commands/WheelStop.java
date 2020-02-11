@@ -14,7 +14,7 @@ import frc.robot.subsystems.ColorSubsystem;
 /**
  * An example command that uses an example subsystem.
  */
-public class WheelRight extends CommandBase {
+public class WheelStop extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final ColorSubsystem m_subsystem;
 
@@ -23,7 +23,7 @@ public class WheelRight extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public WheelRight(ColorSubsystem subsystem) {
+  public WheelStop(ColorSubsystem subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -37,7 +37,7 @@ public class WheelRight extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.ColorControl(-1);
+    m_subsystem.ColorControl(0);
   }
 
   // Called once the command ends or is interrupted.
@@ -49,6 +49,6 @@ public class WheelRight extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
