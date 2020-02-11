@@ -19,7 +19,7 @@ public class SpinWheel extends CommandBase {
   private int halfSpinCount;
   private String startingColor;
   private String currentColor;
-  private int seenColor;
+  private boolean colorHasChanged;
   /**
    * Creates a new ExampleCommand.
    *
@@ -27,6 +27,10 @@ public class SpinWheel extends CommandBase {
    */
   public SpinWheel(ColorSubsystem subsystem) {
     m_subsystem = subsystem;
+    this.halfSpinCount = 0;
+    this.startingColor = m_subsystem.getColor();
+    this.currentColor = m_subsystem.getColor();
+    this.colorHasChanged = false;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -34,26 +38,26 @@ public class SpinWheel extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    int halfSpinCount = 0;
-    String startingColor = m_subsystem.colorString;
-    String currentColor = m_subsystem.colorString;
-    int seenColor = 0;
+    this.halfSpinCount = 0;
+    this.startingColor = m_subsystem.getColor();
+    this.currentColor = m_subsystem.getColor();
+    this.colorHasChanged = false;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    while (halfSpinCount < 7) {
-      currentColor = m_subsystem.colorString;
-      if (currentColor != startingColor){
-        seenColor = 1;
+    
+      this.currentColor = m_subsystem.getColor();
+      if (this.currentColor != this.startingColor){
+        this.colorHasChanged = true;
       }
-      if ((currentColor == startingColor) && seenColor == 1){
-        seenColor = 0;
-        halfSpinCount++;
+      if ((this.currentColor == this.startingColor) && this.colorHasChanged){
+        this.colorHasChanged = false;
+        this.halfSpinCount++;
       }
       m_subsystem.ColorControl(1);
-    }
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -65,6 +69,6 @@ public class SpinWheel extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return (this.halfSpinCount >= 7);
   }
 }
