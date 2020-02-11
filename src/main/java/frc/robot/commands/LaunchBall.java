@@ -41,7 +41,7 @@ public class LaunchBall extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m.subsystem.LaunchBall(0)
+    m_subsystem.LaunchBall(0);
   }
 
   // Returns true when the command should end.

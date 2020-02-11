@@ -43,7 +43,7 @@ public class BeltBallDown extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m.subsystem.BeltBall(0)
+    m_subsystem.BeltBall(0);
   }
 
   // Returns true when the command should end.
