@@ -11,15 +11,15 @@ import frc.robot.subsystems.ColorSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
- * An example command that uses an example subsystem.
+ * A command that spins the color wheel 3 and a half times.
  */
 public class SpinWheel extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final ColorSubsystem m_subsystem;
-  private final int halfSpinCount;
-  private final String startingColor;
-  private final String currentColor;
-  private final int seenColor;
+  private int halfSpinCount;
+  private String startingColor;
+  private String currentColor;
+  private int seenColor;
   /**
    * Creates a new ExampleCommand.
    *

@@ -9,11 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.MiscSubsystem;
 import frc.robot.commands.DefaultDrive;
-
+import frc.robot.commands.SpinWheel;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import frc.robot.commands.TankDrive;
@@ -74,7 +75,7 @@ public class RobotContainer {
     new JoystickButton(m_driverLController, Constants.OIConstants.kJoystickTrigger)
         .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
-    
+    new JoystickButton(m_driver2Controller, Button.kX.value).whenPressed(new SpinWheel(m_colorSensor));
   }
 
 
