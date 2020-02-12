@@ -7,20 +7,20 @@
 
 package frc.robot.commands;
 //imports the PneumaticSubsystem and the commandbase
-import frc.robot.subsystems.PneumaticSubsystem;
+import frc.robot.subsystems.BallIntake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 //basically says that the BallReleaseClose is a command
 public class BallReleaseClose extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final PneumaticSubsystem m_subsystem;
+  private final BallIntake m_subsystem;
 
   /**
    * Creates a new Ball Release command.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public BallReleaseClose(PneumaticSubsystem subsystem) {
+  public BallReleaseClose(BallIntake subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -29,13 +29,13 @@ public class BallReleaseClose extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    m_subsystem.BallRelease(false);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.BallRelease(false);
-
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -46,6 +46,6 @@ public class BallReleaseClose extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
