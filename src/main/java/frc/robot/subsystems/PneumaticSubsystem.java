@@ -35,9 +35,10 @@ public class PneumaticSubsystem extends SubsystemBase {
       s2.set(lift);
     }
 
-/*   public PneumaticSubsystem() {
+   public PneumaticSubsystem() {
+     this.c.start();
   }
- */
+ 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
