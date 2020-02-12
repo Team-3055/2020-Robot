@@ -42,5 +42,6 @@ public final class Constants {
         public static final int kBeltMotor2 = 3;
         public static final int kLaunchMotor1 = 4;
         public static final int kLaunchMotor2 = 5;
+    }
 }
 
