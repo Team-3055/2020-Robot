@@ -9,13 +9,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.commands.TankDrive;
 //import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DefaultDrive;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 //import frc.robot.commands.TankDrive;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
+
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -28,13 +33,13 @@ import edu.wpi.first.wpilibj.Joystick;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
-
+  private final ColorSubsystem m_colorSensor = new ColorSubsystem();
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
-    Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
-    XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
-
-
+  Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
+  XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
+  
+  
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -48,7 +53,7 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
         // hand, and turning controlled by the right.
-        new DefaultDrive(
+        new TankDrive(
             m_robotDrive,
             () -> (m_driverRController.getRawAxis(1)*-1),
             () -> m_driverRController.getRawAxis(0)));
@@ -61,8 +66,11 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    //Sets the drive to run at half speed when the right trigger is held
+    //Sets the drive to run at half speed when either trigger is pressed
     new JoystickButton(m_driverRController, Constants.OIConstants.kJoystickTrigger)
+        .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
+        .whenReleased(() -> m_robotDrive.setMaxOutput(1));
+    new JoystickButton(m_driverLController, Constants.OIConstants.kJoystickTrigger)
         .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
     
