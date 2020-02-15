@@ -9,13 +9,25 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+
+import frc.robot.subsystems.MiscSubsystem;
+import frc.robot.commands.RunWinch;
+import frc.robot.commands.SpinToColor;
+import frc.robot.commands.SpinWheel;
+import frc.robot.commands.WheelLeft;
+import frc.robot.commands.WheelRight;
+import frc.robot.commands.WheelStop;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.commands.TankDrive;
 //import edu.wpi.first.wpilibj2.command.Command;
 //import frc.robot.commands.DefaultDrive;
 
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 //import frc.robot.commands.TankDrive;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -34,10 +46,12 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final ColorSubsystem m_colorSensor = new ColorSubsystem();
+  private final MiscSubsystem m_miscSubsystem = new MiscSubsystem();
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
   Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
   XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
+  
   
   
   /**
@@ -73,7 +87,14 @@ public class RobotContainer {
     new JoystickButton(m_driverLController, Constants.OIConstants.kJoystickTrigger)
         .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
-    
+    new JoystickButton(m_driver2Controller, Button.kX.value).whenPressed(new SpinWheel(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBumperLeft.value)
+        .whenPressed(new WheelLeft(m_colorSensor))
+        .whenReleased(new WheelStop(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBumperRight.value)
+        .whenPressed(new WheelRight(m_colorSensor))
+        .whenReleased(new WheelStop(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new SpinToColor(m_colorSensor));
   }
 
 
