@@ -17,9 +17,9 @@ package frc.robot;
  */
 public final class Constants {
     public static final class DriveConstants {
-        public static final int kLeftMotor1Port = 4;
+        public static final int kLeftMotor1Port = 2;
         public static final int kLeftMotor2Port = 1;
-        public static final int kRightMotor1Port = 3;
+        public static final int kRightMotor1Port = 5;
         public static final int kRightMotor2Port = 3;
     }
     public static final class OIConstants {
@@ -37,6 +37,7 @@ public final class Constants {
         public static final int kSolenoid2 = 2;
     }
 
+
     public static final class MISCMotorConstants {
         public static final int kWheel = 1;
         public static final int kWinch1 = 2;
@@ -44,4 +45,14 @@ public final class Constants {
         public static final int kWinch3 = 2;
         public static final int kWinch4 = 2;
     }
+
+
+    public static final class bIntakeConstants {
+        public static final int kIntakeMotor = 1;
+        public static final int kBeltMotor1 = 2;
+        public static final int kBeltMotor2 = 3;
+        public static final int kLaunchMotor1 = 4;
+        public static final int kLaunchMotor2 = 5;
+    }
 }
+

@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+
 import frc.robot.subsystems.MiscSubsystem;
-import frc.robot.commands.DefaultDrive;
 import frc.robot.commands.RunWinch;
 import frc.robot.commands.SpinToColor;
 import frc.robot.commands.SpinWheel;
@@ -21,6 +21,13 @@ import frc.robot.commands.WheelLeft;
 import frc.robot.commands.WheelRight;
 import frc.robot.commands.WheelStop;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import frc.robot.commands.TankDrive;
+//import edu.wpi.first.wpilibj2.command.Command;
+//import frc.robot.commands.DefaultDrive;
+
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 //import frc.robot.commands.TankDrive;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -60,7 +67,7 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
         // hand, and turning controlled by the right.
-        new DefaultDrive(
+        new TankDrive(
             m_robotDrive,
             () -> (m_driverRController.getRawAxis(1)*-1),
             () -> m_driverRController.getRawAxis(0)));

@@ -7,22 +7,20 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.BallIntake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/**
- * An example command that uses an example subsystem.
- */
-public class ExampleCommand extends CommandBase {
+
+public class BeltBallDown extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final ExampleSubsystem m_subsystem;
+  private final BallIntake m_subsystem;
 
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new Ball Release Command.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(ExampleSubsystem subsystem) {
+  public BeltBallDown(BallIntake subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -34,15 +32,21 @@ public class ExampleCommand extends CommandBase {
   }
 
   // Called every time the scheduler runs while the command is scheduled.
+  //BeltBall1 goes into the BallIntake subsytem, finds the BeltBall (the two motors), 
+  //and sets them to 1 (fowards)
   @Override
   public void execute() {
+    m_subsystem.BeltBall(1);
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    m_subsystem.BeltBall(0);
   }
 
+  // Returns true when the command should end.
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
