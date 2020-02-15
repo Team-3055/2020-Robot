@@ -15,6 +15,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.MiscSubsystem;
 import frc.robot.commands.DefaultDrive;
 import frc.robot.commands.RunWinch;
+import frc.robot.commands.SpinToColor;
 import frc.robot.commands.SpinWheel;
 import frc.robot.commands.WheelLeft;
 import frc.robot.commands.WheelRight;
@@ -86,6 +87,7 @@ public class RobotContainer {
     new JoystickButton(m_driver2Controller, Button.kBumperRight.value)
         .whenPressed(new WheelRight(m_colorSensor))
         .whenReleased(new WheelStop(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new SpinToColor(m_colorSensor));
   }
 
 
