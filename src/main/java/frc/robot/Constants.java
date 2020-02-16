@@ -18,8 +18,8 @@ package frc.robot;
 public final class Constants {
     public static final class DriveConstants {
         public static final int kLeftMotor1Port = 2;
-        public static final int kLeftMotor2Port = 1;
-        public static final int kRightMotor1Port = 5;
+        public static final int kLeftMotor2Port = 2;
+        public static final int kRightMotor1Port = 3;
         public static final int kRightMotor2Port = 3;
     }
     public static final class OIConstants {
@@ -33,25 +33,26 @@ public final class Constants {
     }
     public static final class PNUConstants {
         public static final int kCompressor = 0;
-        public static final int kSolenoid1 = 1;
-        public static final int kSolenoid2 = 2;
+        public static final int kSolenoid1 = 0;
+        public static final int kSolenoid2 = 1;
+        public static final int kSolenoid3 = 2;
     }
 
 
     public static final class MISCMotorConstants {
-        public static final int kWheel = 1;
-        public static final int kWinch1 = 2;
-        public static final int kWinch2 = 2;
-        public static final int kWinch3 = 2;
-        public static final int kWinch4 = 2;
+        public static final int kWheel = 5;
+        public static final int kWinch1 = 7;
+        public static final int kWinch2 = 11;
+        public static final int kWinch3 = 1;
+        public static final int kWinch4 = 8;
     }
 
 
     public static final class bIntakeConstants {
-        public static final int kIntakeMotor = 1;
-        public static final int kBeltMotor1 = 2;
+        public static final int kIntakeMotor = 9;
+        public static final int kBeltMotor1 = 10;
         public static final int kBeltMotor2 = 3;
-        public static final int kLaunchMotor1 = 4;
+        public static final int kLaunchMotor1 = 6;
         public static final int kLaunchMotor2 = 5;
     }
 }

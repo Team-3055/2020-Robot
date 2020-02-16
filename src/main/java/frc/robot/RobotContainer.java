@@ -10,10 +10,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
+import frc.robot.subsystems.BallIntake;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
 import frc.robot.subsystems.MiscSubsystem;
+import frc.robot.commands.IntakeBall;
 import frc.robot.commands.RunWinch;
 import frc.robot.commands.SpinToColor;
 import frc.robot.commands.SpinWheel;
@@ -47,6 +49,7 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final ColorSubsystem m_colorSensor = new ColorSubsystem();
   private final MiscSubsystem m_miscSubsystem = new MiscSubsystem();
+  private final BallIntake m_intake = new BallIntake();
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
   Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
@@ -95,6 +98,8 @@ public class RobotContainer {
         .whenPressed(new WheelRight(m_colorSensor))
         .whenReleased(new WheelStop(m_colorSensor));
     new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new SpinToColor(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBumperLeft.value).whenPressed(new RunWinch(m_miscSubsystem));
+    new JoystickButton(m_driver2Controller, Button.kA.value).whenPressed(new IntakeBall(m_intake));
   }
 
 
