@@ -15,10 +15,12 @@ import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
 import frc.robot.subsystems.MiscSubsystem;
+import frc.robot.commands.DownWinch;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.RunWinch;
 import frc.robot.commands.SpinToColor;
 import frc.robot.commands.SpinWheel;
+import frc.robot.commands.StopWinch;
 import frc.robot.commands.WheelLeft;
 import frc.robot.commands.WheelRight;
 import frc.robot.commands.WheelStop;
@@ -98,7 +100,12 @@ public class RobotContainer {
         .whenPressed(new WheelRight(m_colorSensor))
         .whenReleased(new WheelStop(m_colorSensor));
     new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new SpinToColor(m_colorSensor));
-    new JoystickButton(m_driver2Controller, Button.kBumperLeft.value).whenPressed(new RunWinch(m_miscSubsystem));
+    new JoystickButton(m_driver2Controller, Button.kBumperLeft.value)
+        .whenPressed(new RunWinch(m_miscSubsystem))
+        .whenReleased(new StopWinch(m_miscSubsystem));
+    new JoystickButton(m_driver2Controller, Button.kBumperRight.value)
+        .whenPressed(new DownWinch(m_miscSubsystem))
+        .whenReleased(new StopWinch(m_miscSubsystem));
     new JoystickButton(m_driver2Controller, Button.kA.value).whenPressed(new IntakeBall(m_intake));
   }
 
