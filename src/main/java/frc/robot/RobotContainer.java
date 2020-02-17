@@ -120,9 +120,9 @@ public class RobotContainer {
         .whenPressed(new DownWinch(m_miscSubsystem))
         .whenReleased(new StopWinch(m_miscSubsystem));
     
-    new JoystickButton(m_driver2Controller, Button.kA.value).whenPressed(new IntakeBall(m_intake));
+    new JoystickButton(m_driver2Controller, Button.kA.value).toggleWhenPressed(new IntakeBall(m_intake));
     
-    new JoystickButton(m_driver2Controller, Button.kB.value).whenPressed(new BeltBallUp(m_intake));
+    new JoystickButton(m_driver2Controller, Button.kB.value).toggleWhenPressed(new BeltBallUp(m_intake));
     
     new JoystickButton(m_driver2Controller, Button.kY.value)
         .whenPressed(new LaunchBall(m_intake).withTimeout(5));
