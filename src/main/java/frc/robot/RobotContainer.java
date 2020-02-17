@@ -128,7 +128,7 @@ public class RobotContainer {
         .whenPressed(new LaunchBall(m_intake).withTimeout(5));
 
     new JoystickButton(m_driver2Controller, Button.kStart.value)
-        .whenPressed(new RobotLift(m_pnu));
+        .toggleWhenPressed(new RobotLift(m_pnu));
         
         
   }
