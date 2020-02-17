@@ -10,6 +10,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.ColorSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * A command that spins the color wheel 3 and a half times.
  */
@@ -33,6 +34,7 @@ public class SpinToColor extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    SmartDashboard.putString("Requested Color", DriverStation.getInstance().getGameSpecificMessage());
    
   }
 
@@ -66,6 +68,7 @@ if(gameData.length() > 0)
   }
   m_subsystem.ColorControl(1);
     String DetectedColor = m_subsystem.getColor();
+    SmartDashboard.putBoolean("Color Set", this.ColorSet);
     if(DetectedColor == SpinToColor){
         this.ColorSet = true;
     }

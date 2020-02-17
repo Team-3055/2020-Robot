@@ -24,10 +24,10 @@ import frc.robot.commands.StopWinch;
 import frc.robot.commands.WheelLeft;
 import frc.robot.commands.WheelRight;
 import frc.robot.commands.WheelStop;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.commands.TankDrive;
-//import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Command;
 //import frc.robot.commands.DefaultDrive;
 
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -115,8 +115,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  //public Command getAutonomousCommand() {
+  public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    //return m_autoCommand;
-  //}
+    return null;
+  }
 }

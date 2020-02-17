@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.ColorSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
@@ -31,6 +32,7 @@ public class SpinWheel extends CommandBase {
     this.startingColor = m_subsystem.getColor();
     this.currentColor = m_subsystem.getColor();
     this.colorHasChanged = false;
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -57,6 +59,7 @@ public class SpinWheel extends CommandBase {
         this.halfSpinCount++;
       }
       m_subsystem.ColorControl(1);
+      SmartDashboard.putNumber("Half Spin Count", this.halfSpinCount);
     
   }
 
