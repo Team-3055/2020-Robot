@@ -29,19 +29,24 @@ public class LaunchBall extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    m_subsystem.BallRelease(true);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     m_subsystem.LaunchBall(1);
-
+    m_subsystem.BeltBall(1);
+    m_subsystem.IntakeBall(1);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     m_subsystem.LaunchBall(0);
+    m_subsystem.IntakeBall(0);
+    m_subsystem.BallRelease(false);
+    m_subsystem.BeltBall(0);
   }
 
   // Returns true when the command should end.
