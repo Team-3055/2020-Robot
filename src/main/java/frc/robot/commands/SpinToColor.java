@@ -64,14 +64,16 @@ if(gameData.length() > 0)
       //This is corrupt data
       break;
   }
-} else {
-  //Code for no data received yet
-}
-    m_subsystem.ColorControl(1);
+  m_subsystem.ColorControl(1);
     String DetectedColor = m_subsystem.getColor();
     if(DetectedColor == SpinToColor){
         this.ColorSet = true;
     }
+} else {
+  //Code for no data received yet
+  m_subsystem.ColorControl(0);
+}
+    
   }
 
   // Called once the command ends or is interrupted.
