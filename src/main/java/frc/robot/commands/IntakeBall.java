@@ -35,6 +35,7 @@ public class IntakeBall extends CommandBase {
   @Override
   public void execute() {
     m_subsystem.IntakeBall(1);
+    m_subsystem.BeltBall(1);
 
   }
 
@@ -42,6 +43,7 @@ public class IntakeBall extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     m_subsystem.IntakeBall(0);
+    m_subsystem.BeltBall(0);
   }
 
   // Returns true when the command should end.

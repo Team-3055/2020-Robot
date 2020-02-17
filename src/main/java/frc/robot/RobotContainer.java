@@ -15,11 +15,12 @@ import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
 import frc.robot.subsystems.MiscSubsystem;
-
+import frc.robot.subsystems.PneumaticSubsystem;
 import frc.robot.commands.BeltBallUp;
 import frc.robot.commands.DownWinch;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.LaunchBall;
+import frc.robot.commands.RobotLift;
 import frc.robot.commands.RunWinch;
 import frc.robot.commands.SpinToColor;
 import frc.robot.commands.SpinWheel;
@@ -56,6 +57,7 @@ public class RobotContainer {
   private final ColorSubsystem m_colorSensor = new ColorSubsystem();
   private final MiscSubsystem m_miscSubsystem = new MiscSubsystem();
   private final BallIntake m_intake = new BallIntake();
+  private final PneumaticSubsystem m_pnu = new PneumaticSubsystem();
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   Joystick m_driverRController = new Joystick(Constants.OIConstants.kRightControllerPort);
   Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
@@ -124,6 +126,9 @@ public class RobotContainer {
     
     new JoystickButton(m_driver2Controller, Button.kY.value)
         .whenPressed(new LaunchBall(m_intake).withTimeout(5));
+
+    new JoystickButton(m_driver2Controller, Button.kStart.value)
+        .whenPressed(new RobotLift(m_pnu));
         
         
   }
