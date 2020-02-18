@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+//import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -42,6 +42,17 @@ public class DriveSubsystem extends SubsystemBase {
     public void arcadeDrive(double fwd, double rot) {
       t_drive.arcadeDrive(fwd, rot);
     }
+      /**
+   * Drives the robot using Tank controls.
+   *
+   * @param leftspeed left motor output
+   * @param rightspeed right motor output
+   */
+    public void tankDrive(double leftSpeed, double rightSpeed){
+      t_drive.tankDrive(leftSpeed, rightSpeed);
+      
+    }
+    
     /**
     * Sets the max output of the drive.  Useful for scaling the drive to drive more slowly.
     *
