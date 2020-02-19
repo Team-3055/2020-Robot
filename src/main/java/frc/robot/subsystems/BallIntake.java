@@ -16,7 +16,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public class BallIntake extends SubsystemBase {
   private final WPI_TalonSRX IntakeMotor = new WPI_TalonSRX(Constants.bIntakeConstants.kIntakeMotor);
   private final WPI_TalonSRX BeltMotor1 = new WPI_TalonSRX(Constants.bIntakeConstants.kBeltMotor1);
-  private final WPI_TalonSRX BeltMotor2 = new WPI_TalonSRX(Constants.bIntakeConstants.kBeltMotor2);
   private final WPI_TalonSRX LaunchMotor1 = new WPI_TalonSRX(Constants.bIntakeConstants.kLaunchMotor1);
   private final WPI_TalonSRX LaunchMotor2 = new WPI_TalonSRX(Constants.bIntakeConstants.kLaunchMotor2);
   private final Solenoid s1 = new Solenoid(Constants.PNUConstants.kSolenoid1);
@@ -31,7 +30,6 @@ public void BallRelease(boolean ball) {
 }
 public void BeltBall(float speed){
   BeltMotor1.set(speed);
-  BeltMotor2.set(speed);
 }
 public void LaunchBall(float speed){
   LaunchMotor1.set(speed);
