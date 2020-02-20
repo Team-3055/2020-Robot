@@ -50,7 +50,7 @@ public final class Constants {
         public static final int kIntakeMotor = 9;
         public static final int kBeltMotor1 = 10;
         public static final int kLaunchMotor1 = 6;
-        public static final int kLaunchMotor2 = 5;
+        public static final int kLaunchMotor2 = 4;
     }
 }
 
