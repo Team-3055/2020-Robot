@@ -81,7 +81,7 @@ public class RobotContainer {
         new TankDrive(
             m_robotDrive,
             () -> (m_driverRController.getRawAxis(1)*-1),
-            () -> m_driverLController.getRawAxis(1)));
+            () -> m_driverLController.getRawAxis(1)*-1));
   }
 
   /**
