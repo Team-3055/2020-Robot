@@ -36,7 +36,7 @@ public class BeltBallDown extends CommandBase {
   //and sets them to 1 (fowards)
   @Override
   public void execute() {
-    m_subsystem.BeltBall(1);
+    m_subsystem.BeltBall(-1);
 
   }
 

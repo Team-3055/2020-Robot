@@ -36,7 +36,7 @@ public class LaunchBall extends CommandBase {
   @Override
   public void execute() {
     m_subsystem.LaunchBall(1);
-    m_subsystem.BeltBall(1);
+    m_subsystem.BeltBall(.5);
     m_subsystem.IntakeBall(1);
   }
 
