@@ -93,7 +93,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     //Sets the drive to run at half speed when either trigger is pressed
     new JoystickButton(m_driverRController, Constants.OIConstants.kJoystickTrigger)
-        .whenPressed(() -> m_robotDrive.setMaxOutput(1))
+        .whenPressed(() -> m_robotDrive.setMaxOutput(.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
     
     new JoystickButton(m_driverLController, Constants.OIConstants.kJoystickTrigger)
