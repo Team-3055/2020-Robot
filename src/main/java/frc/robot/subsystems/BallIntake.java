@@ -28,7 +28,7 @@ public void IntakeBall(float speed){
 public void BallRelease(boolean ball) {
     s1.set(ball);
 }
-public void BeltBall(float speed){
+public void BeltBall(double speed){
   BeltMotor1.set(speed);
 }
 public void LaunchBall(float speed){
