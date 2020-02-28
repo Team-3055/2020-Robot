@@ -93,7 +93,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     //Sets the drive to run at half speed when either trigger is pressed
     new JoystickButton(m_driverRController, Constants.OIConstants.kJoystickTrigger)
-        .whenPressed(() -> m_robotDrive.setMaxOutput(1))
+        .whenPressed(() -> m_robotDrive.setMaxOutput(.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
     
     new JoystickButton(m_driverLController, Constants.OIConstants.kJoystickTrigger)
@@ -111,14 +111,6 @@ public class RobotContainer {
         .whenReleased(new WheelStop(m_colorSensor));
     
     new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new SpinToColor(m_colorSensor));
-    
-    new JoystickButton(m_driver2Controller, Button.kBumperLeft.value)
-        .whenPressed(new RunWinch(m_miscSubsystem))
-        .whenReleased(new StopWinch(m_miscSubsystem));
-    
-    new JoystickButton(m_driver2Controller, Button.kBumperRight.value)
-        .whenPressed(new DownWinch(m_miscSubsystem))
-        .whenReleased(new StopWinch(m_miscSubsystem));
     
     new JoystickButton(m_driver2Controller, Button.kA.value).toggleWhenPressed(new IntakeBall(m_intake));
     
