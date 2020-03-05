@@ -49,7 +49,7 @@ public final class Constants {
     public static final class bIntakeConstants {
         public static final int kIntakeMotor = 9;
         public static final int kBeltMotor1 = 10;
-        public static final int kLaunchMotor1 = 6;
+        public static final int kLaunchMotor1 = 1;
         public static final int kLaunchMotor2 = 4;
     }
 }
