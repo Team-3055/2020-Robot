@@ -35,7 +35,7 @@ public class IntakeBall extends CommandBase {
   @Override
   public void execute() {
     m_subsystem.IntakeBall(1);
-    m_subsystem.BeltBall(.5);
+    m_subsystem.BeltBall(.75);
 
   }
 

@@ -38,6 +38,7 @@ public class LaunchBall extends CommandBase {
     m_subsystem.LaunchBall(1);
     m_subsystem.BeltBall(.75);
     m_subsystem.IntakeBall(1);
+    m_subsystem.BallRelease(true);
   }
 
   // Called once the command ends or is interrupted.
