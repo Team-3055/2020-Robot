@@ -44,6 +44,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.MjpegServer;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -63,7 +68,14 @@ public class RobotContainer {
   Joystick m_driverLController = new Joystick(Constants.OIConstants.kLeftControllerPort);
   XboxController m_driver2Controller = new XboxController(Constants.OIConstants.kXboxControllerPort);
   
-  
+  // Creates UsbCamera and MjpegServer [1] and connects them
+UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+
+// Creates the CvSink and connects it to the UsbCamera
+CvSink cvSink = CameraServer.getInstance().getVideo();
+
+// Creates the CvSource and MjpegServer [2] and connects them
+CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
   
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
