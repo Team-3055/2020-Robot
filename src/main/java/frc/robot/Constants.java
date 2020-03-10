@@ -31,9 +31,9 @@ public final class Constants {
     }
     public static final class PNUConstants {
         public static final int kCompressor = 0;
-        public static final int kSolenoid1 = 0;
+        public static final int kSolenoid1 = 2;
         public static final int kSolenoid2 = 1;
-        public static final int kSolenoid3 = 2;
+        public static final int kSolenoid3 = 0;
     }
 
 
