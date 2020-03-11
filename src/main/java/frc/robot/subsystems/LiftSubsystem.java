@@ -28,6 +28,7 @@ public class LiftSubsystem extends SubsystemBase {
   
     private final Solenoid s2 = new Solenoid(Constants.PNUConstants.kSolenoid2);
     private final Solenoid s3 = new Solenoid(Constants.PNUConstants.kSolenoid3);
+    //Variables for winch motors
     private final SpeedControllerGroup WinchRight = new SpeedControllerGroup(
       new WPI_VictorSPX(MISCMotorConstants.kWinch1) , 
       new WPI_VictorSPX(MISCMotorConstants.kWinch2));
@@ -36,6 +37,12 @@ public class LiftSubsystem extends SubsystemBase {
         new WPI_VictorSPX(MISCMotorConstants.kWinch4));
 
    
+    
+    
+    public boolean getIsArmUp() {
+      return s2.get() && s3.get();
+    }
+    
 
   //Boolean=true false, when calling RobotLift(boolean true/false) in code, 
   //it will drop to here and open/close accordingly
@@ -55,6 +62,7 @@ public class LiftSubsystem extends SubsystemBase {
 
    public LiftSubsystem() {
      this.c.start();
+    
   }
  
   @Override

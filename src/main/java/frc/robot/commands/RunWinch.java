@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class RunWinch extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final LiftSubsystem m_subsystem;
-
+  private boolean winchHasRun;
   /**
    * Creates a new ExampleCommand.
    *
@@ -24,6 +24,7 @@ public class RunWinch extends CommandBase {
    */
   public RunWinch(LiftSubsystem subsystem) {
     m_subsystem = subsystem;
+    this.winchHasRun = false;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -36,9 +37,16 @@ public class RunWinch extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if (winchHasRun){
+      m_subsystem.WinchControl(-1);
+      
+      //this.winchHasRun = false;
+    }
+    if (!winchHasRun){
     m_subsystem.WinchControl(1);
+   // this.winchHasRun = true;
+    }
   }
-
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
