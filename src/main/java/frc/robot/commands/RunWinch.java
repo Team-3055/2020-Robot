@@ -8,7 +8,10 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.LiftSubsystem;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
+
 
 /**
  * An example command that uses an example subsystem.
@@ -39,12 +42,13 @@ public class RunWinch extends CommandBase {
   public void execute() {
     if (winchHasRun){
       m_subsystem.WinchControl(-1);
-      
-      //this.winchHasRun = false;
+      Timer.delay(Constants.PNUConstants.winchTimer);
+      this.winchHasRun = false;
     }
     if (!winchHasRun){
-    m_subsystem.WinchControl(1);
-   // this.winchHasRun = true;
+      m_subsystem.WinchControl(1);
+      Timer.delay(Constants.PNUConstants.winchTimer);
+      this.winchHasRun = true;
     }
   }
   // Called once the command ends or is interrupted.

@@ -34,6 +34,7 @@ public final class Constants {
         public static final int kSolenoid1 = 2;
         public static final int kSolenoid2 = 1;
         public static final int kSolenoid3 = 0;
+        public static final double winchTimer = 3; //for winch motor timeout
     }
 
 
