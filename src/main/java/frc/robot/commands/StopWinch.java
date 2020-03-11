@@ -7,7 +7,7 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.MiscSubsystem;
+import frc.robot.subsystems.LiftSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
@@ -15,14 +15,14 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
  */
 public class StopWinch extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final MiscSubsystem m_subsystem;
+  private final LiftSubsystem m_subsystem;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public StopWinch(MiscSubsystem subsystem) {
+  public StopWinch(LiftSubsystem subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);

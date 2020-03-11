@@ -8,12 +8,17 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 //import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.Constants;
+import frc.robot.Constants.MISCMotorConstants;
 
-public class PneumaticSubsystem extends SubsystemBase {
+public class LiftSubsystem extends SubsystemBase {
   /**
    * Creates a new ExampleSubsystem.
    */ 
@@ -23,6 +28,13 @@ public class PneumaticSubsystem extends SubsystemBase {
   
     private final Solenoid s2 = new Solenoid(Constants.PNUConstants.kSolenoid2);
     private final Solenoid s3 = new Solenoid(Constants.PNUConstants.kSolenoid3);
+    private final SpeedControllerGroup WinchRight = new SpeedControllerGroup(
+      new WPI_VictorSPX(MISCMotorConstants.kWinch1) , 
+      new WPI_VictorSPX(MISCMotorConstants.kWinch2));
+    private final SpeedControllerGroup WinchLeft = new SpeedControllerGroup(
+        new WPI_VictorSPX(MISCMotorConstants.kWinch3) , 
+        new WPI_VictorSPX(MISCMotorConstants.kWinch4));
+
    
 
   //Boolean=true false, when calling RobotLift(boolean true/false) in code, 
@@ -31,8 +43,17 @@ public class PneumaticSubsystem extends SubsystemBase {
       s2.set(lift);
       s3.set(lift);
     }
+/**
+   * Creates a new Winch Control.
+   *
+   * @param speed The speed the controller must be set at. Value between -1 and 1
+   */
+  public void WinchControl(float speed) {
+    WinchLeft.set(speed);
+    WinchRight.set(speed);
+}
 
-   public PneumaticSubsystem() {
+   public LiftSubsystem() {
      this.c.start();
   }
  

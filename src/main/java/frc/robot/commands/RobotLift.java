@@ -7,20 +7,20 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.PneumaticSubsystem;
+import frc.robot.subsystems.LiftSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
 public class RobotLift extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final PneumaticSubsystem m_subsystem;
+  private final LiftSubsystem m_subsystem;
 
   /**
    * Creates a new Robot Lift (Up) Command.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public RobotLift(PneumaticSubsystem subsystem) {
+  public RobotLift(LiftSubsystem subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
