@@ -14,12 +14,12 @@ import frc.robot.subsystems.BallIntake;
 import frc.robot.subsystems.ColorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
-
 import frc.robot.subsystems.LiftSubsystem;
-import frc.robot.commands.BeltBallUp;
+import frc.robot.commands.DownWinch;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.LaunchBall;
 import frc.robot.commands.RobotLift;
+import frc.robot.commands.RunWinch;
 import frc.robot.commands.SpinToColor;
 import frc.robot.commands.SpinWheel;
 import frc.robot.commands.WheelLeft;
@@ -28,6 +28,7 @@ import frc.robot.commands.WheelStop;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.commands.TankDrive;
+import frc.robot.commands.UpWinch;
 import edu.wpi.first.wpilibj2.command.Command;
 //import frc.robot.commands.DefaultDrive;
 
@@ -119,17 +120,23 @@ CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
         .whenPressed(new WheelRight(m_colorSensor))
         .whenReleased(new WheelStop(m_colorSensor));
     
-    new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new SpinToColor(m_colorSensor));
+    new JoystickButton(m_driver2Controller, Button.kBack.value).whenPressed(new RunWinch(m_LiftSubsystem));
     
     new JoystickButton(m_driver2Controller, Button.kA.value).toggleWhenPressed(new IntakeBall(m_intake));
     
-    new JoystickButton(m_driver2Controller, Button.kB.value).toggleWhenPressed(new BeltBallUp(m_intake));
+    new JoystickButton(m_driver2Controller, Button.kB.value).whenPressed(new SpinToColor(m_colorSensor));
     
     new JoystickButton(m_driver2Controller, Button.kY.value)
-        .whenPressed(new LaunchBall(m_intake).withTimeout(5));
+        .toggleWhenPressed(new LaunchBall(m_intake).withTimeout(5));
 
     new JoystickButton(m_driver2Controller, Button.kStart.value)
         .toggleWhenPressed(new RobotLift(m_LiftSubsystem));
+
+    new JoystickButton(m_driverLController, 7)
+        .whenHeld(new DownWinch(m_LiftSubsystem));
+    
+    new JoystickButton(m_driverLController, 8)
+        .whenHeld(new UpWinch(m_LiftSubsystem));
         
         
   }
