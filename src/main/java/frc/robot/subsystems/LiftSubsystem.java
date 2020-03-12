@@ -61,7 +61,7 @@ public class LiftSubsystem extends SubsystemBase {
 }
 
    public LiftSubsystem() {
-     this.c.start();
+     //this.c.start();
     
   }
  
