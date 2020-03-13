@@ -90,8 +90,8 @@ CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
         // hand, and turning controlled by the right.
         new TankDrive(
             m_robotDrive,
-            () -> (m_driverRController.getRawAxis(1)*-1),
-            () -> m_driverLController.getRawAxis(1)*-1));
+            () -> (m_driver2Controller.getRawAxis(5)*-1),
+            () -> m_driver2Controller.getRawAxis(1)*-1));
   }
 
   /**
